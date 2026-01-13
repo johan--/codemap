@@ -1,0 +1,40 @@
+#!/bin/bash
+# CodeMap pre-commit hook
+# Automatically updates the codemap when code files are committed
+
+# Get list of staged Python/TS/JS files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(py|ts|js|tsx|jsx)$')
+
+if [ -z "$STAGED_FILES" ]; then
+    exit 0
+fi
+
+# Check if codemap is initialized
+if [ ! -f ".codemap.json" ]; then
+    exit 0
+fi
+
+# Check if codemap command is available
+if ! command -v codemap &> /dev/null; then
+    echo "Warning: codemap command not found, skipping index update"
+    exit 0
+fi
+
+# Update index for each staged file
+UPDATED=0
+for FILE in $STAGED_FILES; do
+    if [ -f "$FILE" ]; then
+        codemap update "$FILE" > /dev/null 2>&1
+        if [ $? -eq 0 ]; then
+            UPDATED=$((UPDATED + 1))
+        fi
+    fi
+done
+
+# Stage the updated map if any files were updated
+if [ $UPDATED -gt 0 ]; then
+    git add .codemap.json
+    echo "CodeMap: Updated index for $UPDATED file(s)"
+fi
+
+exit 0
