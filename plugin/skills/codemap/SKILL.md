@@ -125,9 +125,15 @@ codemap validate path/to/file.ts
 ## Setup (If Not Initialized)
 
 If a project doesn't have a `.codemap/` directory:
+
+### Prerequisites
+- Python 3.10+ and pip must be installed
+- Verify with: `python3 --version && pip --version`
+
+### Installation
 ```bash
-# Install codemap
-pip install codemap
+# Install codemap from GitHub (NOT from PyPI - there's a different package there)
+pip install git+https://github.com/AZidan/codemap.git
 
 # Initialize index
 codemap init .
@@ -135,6 +141,8 @@ codemap init .
 # Optional: Install git hooks for auto-updates
 codemap install-hooks
 ```
+
+**IMPORTANT**: Do NOT use `pip install codemap` - that installs a different package from PyPI. Always use the GitHub URL above.
 
 ## Best Practices
 

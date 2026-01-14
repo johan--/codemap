@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "command -v codemap >/dev/null 2>&1 || pip install -q git+https://github.com/AZidan/codemap.git"
+            "command": "command -v codemap >/dev/null 2>&1 || { command -v pip >/dev/null 2>&1 && pip install -q git+https://github.com/AZidan/codemap.git || echo 'codemap requires Python/pip. Install Python 3.10+ first.' >&2; }"
           }
         ]
       }
