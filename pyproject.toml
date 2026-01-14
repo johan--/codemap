@@ -26,10 +26,32 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# Core tree-sitter (JS/TS)
 treesitter = [
     "tree-sitter>=0.21",
     "tree-sitter-javascript>=0.21",
     "tree-sitter-typescript>=0.21",
+]
+# Individual language support
+go = [
+    "tree-sitter>=0.21",
+    "tree-sitter-go>=0.21",
+]
+java = [
+    "tree-sitter>=0.21",
+    "tree-sitter-java>=0.21",
+]
+csharp = [
+    "tree-sitter>=0.21",
+    "tree-sitter-c-sharp>=0.21",
+]
+rust = [
+    "tree-sitter>=0.21",
+    "tree-sitter-rust>=0.21",
+]
+# All languages bundle
+languages = [
+    "codemap[treesitter,go,java,csharp,rust]",
 ]
 watch = [
     "watchdog>=3.0",
@@ -41,7 +63,7 @@ dev = [
     "ruff",
 ]
 all = [
-    "codemap[treesitter,watch,dev]",
+    "codemap[languages,watch,dev]",
 ]
 
 [project.scripts]
