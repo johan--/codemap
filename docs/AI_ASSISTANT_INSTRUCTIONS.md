@@ -2,6 +2,15 @@
 
 This project uses **CodeMap** - a structural index of the codebase that enables targeted code navigation without reading entire files.
 
+## Start Watch Mode First
+
+Before working on the codebase, start watch mode to keep the index automatically updated:
+```bash
+codemap watch . &
+```
+
+This runs in the background and updates the index whenever files change.
+
 ## Quick Reference
 
 ```bash
@@ -16,6 +25,9 @@ codemap validate
 
 # View statistics
 codemap stats
+
+# Start watch mode (keeps index updated automatically)
+codemap watch . &
 ```
 
 ## When to Use CodeMap

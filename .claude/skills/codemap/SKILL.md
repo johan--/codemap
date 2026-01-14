@@ -137,12 +137,22 @@ pip install git+https://github.com/AZidan/codemap.git
 
 # Initialize index
 codemap init .
-
-# Optional: Install git hooks for auto-updates
-codemap install-hooks
 ```
 
 **IMPORTANT**: Do NOT use `pip install codemap` - that installs a different package from PyPI. Always use the GitHub URL above.
+
+### Start Watch Mode (Recommended)
+Start watch mode in the background to keep the index automatically updated:
+```bash
+codemap watch . &
+```
+
+This runs in the background and updates the index whenever files change. No need to manually run `codemap update`.
+
+To stop watch mode later:
+```bash
+pkill -f "codemap watch"
+```
 
 ## Best Practices
 

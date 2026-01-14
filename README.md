@@ -50,6 +50,7 @@ CodeMap creates a `.codemap/` index containing:
 ```bash
 pip install git+https://github.com/AZidan/codemap.git
 codemap init .
+codemap watch . &   # Keep index auto-updated in background
 codemap find "ClassName"
 # → src/file.py:15-89 [class] ClassName
 
@@ -123,7 +124,17 @@ Indexed 47 files, 382 symbols
 Saved to .codemap/
 ```
 
-### 2. Find Symbols
+### 2. Start Watch Mode (Recommended)
+
+Keep the index automatically updated as you work:
+
+```bash
+codemap watch . &
+```
+
+This runs in the background and updates the index whenever files change.
+
+### 3. Find Symbols
 
 ```bash
 codemap find "PaymentProcessor"
@@ -136,7 +147,7 @@ src/payments/processor.py:15-189 [class] PaymentProcessor
   └── validate_card [method] L60-88
 ```
 
-### 3. Read Only What You Need
+### 4. Read Only What You Need
 
 Instead of reading the entire 500-line file, read just lines 15-189:
 
@@ -145,14 +156,7 @@ Instead of reading the entire 500-line file, read just lines 15-189:
 view("src/payments/processor.py", line_range=[15, 189])
 ```
 
-### 4. Check for Changes
-
-```bash
-codemap validate
-# → All entries up to date ✓
-```
-
-No changes? No need to re-read. Tokens saved.
+No need to manually update - watch mode keeps the index fresh.
 
 ---
 
