@@ -373,13 +373,22 @@ This is why CodeMap achieves 41% better token efficiency than LSP-based tools on
 
 ## Supported Languages
 
-| Language | Parser | Symbol Types |
-|----------|--------|--------------|
-| **Python** | stdlib `ast` | class, function, method, async_function, async_method |
-| **TypeScript** | tree-sitter | class, function, method, interface, type, enum |
-| **JavaScript** | tree-sitter | class, function, method, async_function, async_method |
+| Language | Parser | Install | Symbol Types |
+|----------|--------|---------|--------------|
+| **Python** | stdlib `ast` | (included) | class, function, method, async_function, async_method |
+| **TypeScript** | tree-sitter | `pip install .[treesitter]` | class, function, method, interface, type, enum |
+| **JavaScript** | tree-sitter | `pip install .[treesitter]` | class, function, method, async_function, async_method |
+| **Go** | tree-sitter | `pip install .[go]` | function, method, struct, interface, type |
+| **Java** | tree-sitter | `pip install .[java]` | class, interface, enum, method |
+| **C#** | tree-sitter | `pip install .[csharp]` | class, interface, struct, enum, method, property |
+| **Rust** | tree-sitter | `pip install .[rust]` | function, struct, enum, trait, impl, module |
 
-> **Adding a language?** See [CONTRIBUTING.md](CONTRIBUTING.md) for parser guidelines.
+```bash
+# Install all languages
+pip install .[languages]
+```
+
+> **Adding a language?** See [CONTRIBUTING.md](CONTRIBUTING.md) - new languages only need ~50 lines of config!
 
 ---
 
