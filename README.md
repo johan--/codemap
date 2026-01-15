@@ -364,7 +364,7 @@ See [plugin/README.md](plugin/README.md) for detailed documentation.
 | **Watch mode** | ✅ | ❌ | ❌ | ❌ |
 | **Claude Code plugin** | ✅ | ❌ | ✅ (MCP) | ✅ (MCP) |
 | **Setup complexity** | Low | Medium | High (LSP) | Low |
-| **Languages supported** | 9 | 20+ | 10+ | Many |
+| **Languages supported** | 11 | 20+ | 10+ | Many |
 | **Approach** | Navigation | Summarization | Semantic | Context building |
 
 ### Why CodeMap is Different
@@ -390,6 +390,8 @@ This is why CodeMap achieves 41% better token efficiency than LSP-based tools on
 | **Java** | tree-sitter | see below | class, interface, enum, method |
 | **C#** | tree-sitter | see below | class, interface, struct, enum, method, property |
 | **Rust** | tree-sitter | see below | function, struct, enum, trait, impl, module |
+| **C** | tree-sitter | see below | function, struct, enum, typedef |
+| **C++** | tree-sitter | see below | class, struct, function, method, namespace, enum, template |
 
 ```bash
 # Install with specific language support
@@ -400,6 +402,8 @@ pip install "codemap[go] @ git+https://github.com/AZidan/codemap.git"          #
 pip install "codemap[java] @ git+https://github.com/AZidan/codemap.git"        # Java
 pip install "codemap[csharp] @ git+https://github.com/AZidan/codemap.git"      # C#
 pip install "codemap[rust] @ git+https://github.com/AZidan/codemap.git"        # Rust
+pip install "codemap[c] @ git+https://github.com/AZidan/codemap.git"          # C
+pip install "codemap[cpp] @ git+https://github.com/AZidan/codemap.git"        # C++
 
 # Install all languages
 pip install "codemap[languages] @ git+https://github.com/AZidan/codemap.git"
@@ -582,7 +586,9 @@ codemap/
 │   ├── go_parser.py
 │   ├── java_parser.py
 │   ├── csharp_parser.py
-│   └── rust_parser.py
+│   ├── rust_parser.py
+│   ├── c_parser.py         # C tree-sitter parser
+│   └── cpp_parser.py       # C++ tree-sitter parser
 ├── hooks/
 │   └── installer.py       # Git hook installation
 └── utils/

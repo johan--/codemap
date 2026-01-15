@@ -4,11 +4,12 @@
 
 ## Current Status
 
-**Supported Languages (11):**
+**Supported Languages (13):**
 - Python (stdlib ast)
 - TypeScript, JavaScript (tree-sitter)
 - Kotlin, Swift (tree-sitter)
 - Go, Java, C#, Rust (tree-sitter)
+- C, C++ (tree-sitter)
 - Markdown, YAML (custom parsers)
 
 ## Priority Tiers
@@ -24,13 +25,13 @@ Languages ranked by combined popularity from [TIOBE Index](https://www.tiobe.com
 | 3 | TypeScript | #9 | #5 (43%) | ✅ Done | tree-sitter-typescript |
 | 4 | Java | #4 | #8 (30%) | ✅ Done | tree-sitter-java |
 | 5 | C# | #5 | #9 (27%) | ✅ Done | tree-sitter-c-sharp |
-| 6 | C++ | #2 | #10 (20%) | ⏳ Planned | tree-sitter-cpp |
-| 7 | C | #3 | #12 (17%) | ⏳ Planned | tree-sitter-c |
+| 6 | C++ | #2 | #10 (20%) | ✅ Done | tree-sitter-cpp |
+| 7 | C | #3 | #12 (17%) | ✅ Done | tree-sitter-c |
 | 8 | Go | #8 | #13 (14%) | ✅ Done | tree-sitter-go |
 | 9 | Rust | #13 | #14 (13%) | ✅ Done | tree-sitter-rust |
 | 10 | PHP | #17 | #11 (18%) | ⏳ Planned | tree-sitter-php |
 
-**Tier 1 Completion: 8/10 (80%)**
+**Tier 1 Completion: 10/10 (100%) - Only PHP remaining!**
 
 ### Tier 2: High Priority (Ranks 11-25)
 
@@ -207,19 +208,19 @@ Instead of individual packages, consider using [tree-sitter-language-pack](https
 
 | Tier | Total | Done | Remaining | Completion |
 |------|-------|------|-----------|------------|
-| Tier 1 (Critical) | 10 | 8 | 2 | 80% |
+| Tier 1 (Critical) | 10 | 9 | 1 | 90% |
 | Tier 2 (High Priority) | 15 | 2 | 13 | 13% |
 | Tier 3 (Config/Data) | 8 | 0 | 8 | 0% |
 | Tier 4 (Emerging) | 10 | 0 | 10 | 0% |
-| **Total** | **43** | **10** | **33** | **23%** |
+| **Total** | **43** | **11** | **32** | **26%** |
 
 ---
 
 ## Next Actions
 
-1. [ ] Implement C++ parser (Tier 1)
-2. [ ] Implement C parser (Tier 1)
-3. [ ] Implement PHP parser (Tier 1)
+1. [x] Implement C++ parser (Tier 1) ✅ Done
+2. [x] Implement C parser (Tier 1) ✅ Done
+3. [ ] Implement PHP parser (Tier 1) - PR #6 under review
 4. [ ] Evaluate tree-sitter-language-pack vs individual packages
 5. [ ] Add HTML/CSS/SQL parsers (Tier 2 web stack)
 6. [ ] Add Bash parser (Tier 2 DevOps)
