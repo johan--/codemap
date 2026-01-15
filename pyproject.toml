@@ -49,9 +49,13 @@ rust = [
     "tree-sitter>=0.21",
     "tree-sitter-rust>=0.21",
 ]
+php = [
+    "tree-sitter>=0.21",
+    "tree-sitter-php>=0.23",
+]
 # All languages bundle
 languages = [
-    "codemap[treesitter,go,java,csharp,rust]",
+    "codemap[treesitter,go,java,csharp,rust,php]",
 ]
 watch = [
     "watchdog>=3.0",
